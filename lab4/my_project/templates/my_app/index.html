@@ -1,0 +1,27 @@
+<html>
+<body>
+    {{ hi }}
+    <br>
+    {{ name }}
+    <br>
+    title case names
+    <ul>
+        {% for name in fixed_names %}
+        <li>{{ name }}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    The second name is {{names.1}}.
+    <br>
+    <p>
+        car1 color: {{ car1.color }} makes sound: {{ car1.sound }} and has wheels: {{ car1.wheels }}
+        <br>
+        car2 color: {{car2.color}} makes sound: {{ car2.sound }} and has wheels: {{ car2.wheels }}
+        <br>
+        motorcycle make: {{ motorcycle.make }} model: {{ motorcycle.model }} year: {{ motorcycle.year }}
+    </p>
+
+    
+
+</body>
+</html>

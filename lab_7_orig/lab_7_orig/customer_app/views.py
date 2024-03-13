@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views import View
-from .models import Customer, Order
-from .forms import CustomerForm, OrderForm
+from .models import Customer, Order, Contact
+from .forms import CustomerForm, OrderForm, ContactForm
 # Create your views here.
 
 class CustomerList(View):
@@ -106,4 +106,37 @@ class OrderDelete(View):
         order.delete()
 
         return redirect(reverse("order-list"))
+    
+class ContactEdit(View):
+    def get(self,request, contact_id=None):
+
+        if contact_id:
+            contact = Contact.objects.get(pk=contact_id)
+        else:
+            contact = Contact()
+
+        form = ContactForm(instance=contact)
+
+        return render(request = request,
+                      template_name = 'customer_app/contact_edit.html',
+                      context = {'contact':contact,'form':form, 'message': 'Contact Record Saved.'})
+    
+    def post(self,request,contact_id=None):
+
+        if contact_id:
+            contact = Contact.objects.get(pk=contact_id)
+        else:
+            contact = Contact()
+
+        form = ContactForm(request.POST,instance=contact)
+
+        if form.is_valid():
+            contact = form.save()
+
+            
+        
+        return render(request = request,template_name = 'customer_app/contact_edit.html',context = {'contact':contact,'form':form})
+    
+
+
     

@@ -29,6 +29,12 @@ class Order(models.Model):
         choices=status_choices,
         default='pending'
     )
+class Contact(models.Model):
 
+    customer = models.ForeignKey(to = Customer,on_delete = models.CASCADE)
+    phone = models.CharField(max_length=17)
+    email = models.EmailField()
+
+    
 
 

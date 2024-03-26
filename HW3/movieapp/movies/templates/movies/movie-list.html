@@ -1,0 +1,14 @@
+{% block content %}
+<h2>Movie List</h2>
+<ul>
+    {% for movie in movies %}
+    <li>
+        <a href="{% url 'movie-details' movie.id %}">{{ movie.title }}</a>
+    </li>
+    {% empty %}
+    <li>No movies available.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'movie-add' %}">Add New Movie</a>
+{% endblock %}
+

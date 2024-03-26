@@ -1,0 +1,20 @@
+{% block content %}
+<h2>{{ movie.title }}</h2>
+<p>{{ movie.description }}</p>
+<br>
+<p>Director: {{ movie.director }}</p>
+<br>
+<p>Release Year: {{ movie.release_year }}</p>
+<br>
+<p>Budget: {{ movie.budget }}</p>
+<br>
+<p>Runtime: {{ movie.runtime }}</p>
+<br>
+<p>Rating: {{ movie.rating }}</p>
+<br>
+<p>Genre: {{ movie.genre }}</p>
+
+<a href="{% url 'movie-update' movie.id %}">Edit</a>
+{% endblock %}
+
+
